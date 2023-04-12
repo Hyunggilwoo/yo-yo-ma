@@ -1,4 +1,4 @@
--- For now, we will have us execute this command to create the table.
+-- For now, we will have us execute this command to create a data table.
 CREATE TABLE Customers (Customer_ID int PRIMARY KEY, Name VARCHAR(256), 
                         Address VARCHAR(1024), phone_number Varchar(256) , email VARCHAR(256));
 INSERT INTO Customers (Customer_ID, Name, Address, phone_number, email) VALUES 
