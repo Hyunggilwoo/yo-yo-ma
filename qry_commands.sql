@@ -4,3 +4,22 @@ CREATE TABLE Customers (Customer_ID int PRIMARY KEY, Name VARCHAR(256),
 INSERT INTO Customers (Customer_ID, Name, Address, phone_number, email) VALUES 
     (00123, "Rowan Osmon", "278 Bleecker Street, New York City, NY 10014", "212-243-1680")
 -- Customers (Name, address, phone, email, authorize contacts, vehicles, customer number)
+
+-------------------------------------------------------------------------------------------------------
+-- This query command generates relationship between the store and customer registry.
+
+-- Creating Many-to-one relationship between store and customer_registry
+CREATE TABLE Store (
+    name Varchar(100) PRIMARY KEY
+);
+
+-- Customer registry retrieves information to the store.
+CREATE TABLE Customer_Registry (
+    CID INT PRIMARY KEY, -- Created primary key
+    Name VARCHAR(100),
+    Phone_Num INT,
+    Email VARCHAR(100), -- TODO: In application, don't forget to include character restriction or it cannot be null
+    History VARCHAR(100), -- TODO: Need to figure out how to query specific invoice number into history.
+);
+
+------------------------------------------------------------------------------------------------------
