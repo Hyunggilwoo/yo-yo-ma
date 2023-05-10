@@ -31,5 +31,7 @@ CREATE TABLE Cars (id int PRIMARY KEY, pnum VARCHAR(10), year int, Make VARCHAR(
 CREATE TABLE OwnedVehicle (vin int REFERENCES Cars(id),
                             cid int REFERENCES Customers(id));
 
+-- What is the name and budget of each movie release in 2017 whose oldest actor is less than 30?
+
 
 ------------------------------------------------------------------------------------------------------
