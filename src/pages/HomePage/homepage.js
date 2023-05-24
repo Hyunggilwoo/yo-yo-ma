@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import logo from './PageComponents/logo.svg';
 import { QueryBuilder } from 'react-querybuilder';
+import { Link } from "react-router-dom";
+
 
 const HomePage = () => {
     // handle button actions
@@ -13,7 +15,7 @@ const HomePage = () => {
 
 
     const handleClick = (event) => {
-        
+
     }
 
     return (
@@ -39,9 +41,7 @@ const HomePage = () => {
                     <button>
                         Customer Lookup
                     </button>
-                    <button>
-                        Shop Controls
-                    </button>
+                    <Link to="/services"><button>Shop Controls</button></Link>
                     <input type="text" value={textBoxValue} onChange={handleTextBoxChange}></input>
                     <QueryBuilder >
                         
