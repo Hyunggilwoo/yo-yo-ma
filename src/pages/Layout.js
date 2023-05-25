@@ -1,15 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
+import './styles.css';
 
 const Layout = () => {
   return (
-    <>
+    <form className="styled">
       <nav>
         <ul>
-          <li>
+          <li className="layouts">
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/services">Service</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>
@@ -18,7 +16,7 @@ const Layout = () => {
       </nav>
 
       <Outlet />
-    </>
+    </form>
   )
 };
 
