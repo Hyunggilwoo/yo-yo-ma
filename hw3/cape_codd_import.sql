@@ -204,4 +204,4 @@ SELECT S.SKU, S.SKU_Description
 		WAREHOUSE as W
 		WHERE I.Warehouse = W.Warehouse AND
 			I.SKU = S.SKU
-			-- GROUP BY I.Warehouse; 
+			ORDER BY W.Manager;

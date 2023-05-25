@@ -1,0 +1,116 @@
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `test`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `year_make_model_trim_full_specs_by_teoalida_sample`
+--
+
+CREATE TABLE dbo.Vehicles (
+  VID varchar(105) NOT NULL PRIMARY KEY,
+  Make varchar(6) NOT NULL,
+  Model varchar(8) NOT NULL,
+  Year varchar(4) NOT NULL,
+  Trim varchar(80) NOT NULL,
+  MSRP varchar(7) NOT NULL,
+  Invoice varchar(7) NOT NULL,
+  Colorsexterior varchar(1404) NOT NULL,
+  Colorsinterior varchar(925) NOT NULL,
+  Bodytype varchar(11) NOT NULL,
+  Totalseating varchar(1) NOT NULL,
+  Length varchar(4) NOT NULL,
+  Width  varchar(3) NOT NULL,
+  Height  varchar(3) NOT NULL,
+  Wheelbase  varchar(4) NOT NULL,
+  Fronttrack  varchar(3) NOT NULL,
+  Reartrack  varchar(3) NOT NULL,
+  Groundclearance  varchar(3) NOT NULL,
+  Angleofapproach  varchar(3) NOT NULL,
+  Angleofdeparture  varchar(3) NOT NULL,
+  Turningcircle  varchar(3) NOT NULL,
+  Dragcoefficient  varchar(3) NOT NULL,
+  EPAinteriorvolume  varchar(4) NOT NULL,
+  Cargocapacity  varchar(3) NOT NULL,
+  Maximumcargocapacity  varchar(3) NOT NULL,
+  Curbweight  varchar(4) NOT NULL,
+  Grossweight  varchar(4) NOT NULL,
+  Maximumpayload  varchar(4) NOT NULL,
+  Maximumtowingcapacity  varchar(5) NOT NULL,
+  Cylinders varchar(2) NOT NULL,
+  Enginesize  varchar(2) NOT NULL,
+  Horsepower  varchar(3) NOT NULL,
+  Horsepower  varchar(4) NOT NULL,
+  Torque  varchar(3) NOT NULL,
+  Torque  varchar(4) NOT NULL,
+  Valves varchar(2) NOT NULL,
+  Valvetiming varchar(8) NOT NULL,
+  Camtype varchar(26) NOT NULL,
+  Drivetype varchar(17) NOT NULL,
+  Transmission varchar(37) NOT NULL,
+  Enginetype varchar(15) NOT NULL,
+  Fueltype varchar(30) NOT NULL,
+  Fueltankcapacity  varchar(3) NOT NULL,
+  CombinedMPG varchar(2) NOT NULL,
+  EPAMileage  varchar(9) NOT NULL,
+  Range  varchar(15) NOT NULL,
+  Frontheadroom  varchar(3) NOT NULL,
+  Fronthiproom  varchar(3) NOT NULL,
+  Frontlegroom  varchar(3) NOT NULL,
+  Frontshoulderroom  varchar(3) NOT NULL,
+  Rearheadroom  varchar(3) NOT NULL,
+  RearHipRoom  varchar(3) NOT NULL,
+  RearLegRoom  varchar(3) NOT NULL,
+  RearShoulderRoom  varchar(3) NOT NULL,
+  Basic varchar(16) NOT NULL,
+  Drivetrain varchar(16) NOT NULL,
+  Roadside varchar(16) NOT NULL,
+  Rust varchar(10) NOT NULL,
+  FreeMaintenance varchar(16) NOT NULL,
+  HybridComponent varchar(17) NOT NULL,
+  EVBattery varchar(10) NOT NULL,
+  SourceURL varchar(61) NOT NULL,
+  MSRPRange varchar(17) NOT NULL,
+  WhatIsNew varchar(271) NOT NULL,
+  Pros varchar(238) NOT NULL,
+  Cons varchar(227) NOT NULL,
+  ImageURL varchar(139) NOT NULL,
+  Trim varchar(46) NOT NULL,
+  Description varchar(55) NOT NULL,
+  ImagesURL varchar(976) NOT NULL,
+  Suspension varchar(128) NOT NULL,
+  Frontseats varchar(387) NOT NULL,
+  Rearseats varchar(109) NOT NULL,
+  Powerfeatures varchar(189) NOT NULL,
+  Instrumentation varchar(102) NOT NULL,
+  Convenience varchar(424) NOT NULL,
+  Comfort varchar(438) NOT NULL,
+  MemorizedSettings varchar(142) NOT NULL,
+  InCarEntertainment varchar(328) NOT NULL,
+  Telematics varchar(10) NOT NULL,
+  RoofAndGlass varchar(221) NOT NULL,
+  Body varchar(15) NOT NULL,
+  TruckFeatures varchar(98) NOT NULL,
+  TiresAndWheels varchar(158) NOT NULL,
+  Doors varchar(41) NOT NULL,
+  TowingAndHauling varchar(51) NOT NULL,
+  SafetyFeatures varchar(970) NOT NULL,
+  Packages varchar(1318) NOT NULL,
+  ExteriorOptions varchar(2490) NOT NULL,
+  InteriorOptions varchar(1698) NOT NULL,
+  MechanicalOptions varchar(953) NOT NULL,
+  Domesticorimported varchar(8) NOT NULL,
+  Countryoforigin varchar(13) NOT NULL,
+  Carclassification varchar(22) NOT NULL,
+  PlatformCodeOrGenerationNumber varchar(18) NOT NULL
+) 
+--ENGINE=InnoDB NOT CHARSET=utf8;
