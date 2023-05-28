@@ -1,0 +1,12 @@
+-- INSERT INTO CustomerRegistry (CID, First_Name, Last_Name, Phone, Email) VALUES
+-- (1, 'John', 'Doe', '123-456-7890', 'johndoe@example.com'),
+-- (2, 'Jane', 'Smith', '987-654-3210', 'janesmith@example.com'),
+-- (3, 'Michael', 'Johnson', '555-123-4567', 'michaeljohnson@example.com'),
+-- (4, 'Emily', 'Davis', '111-222-3333', 'emilydavis@example.com'),
+-- (5, 'David', 'Wilson', '444-555-6666', 'davidwilson@example.com'),
+-- (6, 'Sarah', 'Taylor', '777-888-9999', 'sarahtaylor@example.com'),
+-- (7, 'Christopher', 'Anderson', '222-333-4444', 'christopheranderson@example.com'),
+-- (8, 'Jennifer', 'Brown', '666-777-8888', 'jenniferbrown@example.com'),
+-- (9, 'Matthew', 'Martinez', '999-000-1111', 'matthewmartinez@example.com'),
+-- (10, 'Olivia', 'Thomas', '333-444-5555', 'oliviathomas@example.com');
+-- GO

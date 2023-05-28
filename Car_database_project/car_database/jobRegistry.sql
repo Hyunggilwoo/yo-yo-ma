@@ -1,0 +1,12 @@
+-- INSERT INTO JobRegistry (JobID, JobName, Description, Time) VALUES
+-- (1, 'Oil Change', 'Perform oil change and filter replacement', 1.5),
+-- (2, 'Brake Pad Replacement', 'Replace worn-out brake pads with new ones', 2.0),
+-- (3, 'Tire Rotation', 'Rotate tires to ensure even wear', 0.75),
+-- (4, 'Spark Plug Replacement', 'Replace spark plugs for improved engine performance', 1.25),
+-- (5, 'Battery Replacement', 'Replace old battery with a new one', 1.5),
+-- (6, 'Air Filter Replacement', 'Replace air filter to maintain air quality', 1.0),
+-- (7, 'Coolant Flush', 'Flush and replace engine coolant', 1.75),
+-- (8, 'Transmission Fluid Change', 'Drain and refill transmission fluid', 2.5),
+-- (9, 'Wheel Alignment', 'Align wheels for optimal vehicle handling', 1.25),
+-- (10, 'Headlight Bulb Replacement', 'Replace faulty headlight bulb', 0.5);
+-- GO

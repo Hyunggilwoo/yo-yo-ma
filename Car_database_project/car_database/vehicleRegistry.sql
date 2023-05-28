@@ -1,0 +1,12 @@
+-- INSERT INTO VehicleRegistry (Year, Make, Model, VID, Class, Color) VALUES
+-- ('2021', 'Toyota', 'Camry', '1ABC23D456E789012F34567', 'Sedan', 'Silver'),
+-- ('2019', 'Honda', 'Civic', '2DEF34G567H890123I45678', 'Sedan', 'Black'),
+-- ('2020', 'Ford', 'F-150', '3GHI45J678K901234L56789', 'Truck', 'Blue'),
+-- ('2018', 'Chevrolet', 'Cruze', '4MNO56P789Q012345R67890', 'Hatchback', 'Red'),
+-- ('2022', 'Nissan', 'Rogue', '5STU67V890W123456X78901', 'SUV', 'White'),
+-- ('2017', 'BMW', '3 Series', '6YZA78B901C234567D89012', 'Sedan', 'Gray'),
+-- ('2019', 'Jeep', 'Wrangler', '7EFG89H012I345678J90123', 'SUV', 'Green'),
+-- ('2021', 'Mercedes-Benz', 'C-Class', '8KLM90N123P45678Q90123', 'Sedan', 'Silver'),
+-- ('2020', 'Audi', 'A4', '9RST01U234V56789W01234', 'Sedan', 'Black'),
+-- ('2018', 'Volkswagen', 'Golf', '0XYZ12A345B67890C12345', 'Hatchback', 'Blue');
+-- GO
