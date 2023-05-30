@@ -18,6 +18,9 @@ const Layout = () => {
           <li className="layouts">
             <Link to="/CustomerLookup">Customer Lookup</Link>
           </li>
+          <li className="layouts">
+            <Link to="/IntakeForm">Intake Form</Link>
+          </li>
         </ul>
       </nav>
 
