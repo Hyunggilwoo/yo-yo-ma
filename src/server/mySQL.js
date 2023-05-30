@@ -21,8 +21,23 @@ db.connect((error) => {
   }
 });
 
+// Define a route for fetching info from MySQL
+app.get('/api/invoices', (req, res) => {
+  // put the SQL statement here.
+  const query = 'SELECT * FROM invoiceregistry';
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Error fetching invoices from MySQL:', error);
+      res.status(500).json({ error: 'Error fetching invoices' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 // Define a route for fetching invoices from MySQL
 app.get('/api/invoices', (req, res) => {
+  // put the SQL statement here.
   const query = 'SELECT * FROM invoiceregistry';
   db.query(query, (error, results) => {
     if (error) {

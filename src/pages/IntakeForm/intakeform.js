@@ -36,7 +36,7 @@ const IntakeForm = () => {
                 <button onClick={handleClick}>Submit! </button>  
                 <div>
                 <button>
-                    Add new Contact  
+                    Add new Customer   
                 </button>
                 </div>
             </header>

@@ -18,6 +18,7 @@ function App() {
             <Route path="/Invoice" element = {<Invoice />} />
             <Route path="/CustomerLookup" element = {<CustomerLookup />} />
             <Route path="/IntakeForm" element = {<IntakeForm />} />
+            <Route path="/OpenTickets" element = {<OpenTickets />} />
           </Route>
         </Routes>
       </BrowserRouter>

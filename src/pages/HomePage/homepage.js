@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
     // handle button actions
-    const [textBoxValue, setTextBoxValue] = useState();
 
 
 
