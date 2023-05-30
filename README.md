@@ -3,6 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+To connect to the mySQL database, in ./src/server please run:
+node mySQL.js 
+
+//please nore that you will need to configure db.js with your mysql login info.
 
 In the project directory, you can run:
 

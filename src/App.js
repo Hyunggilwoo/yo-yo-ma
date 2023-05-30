@@ -6,6 +6,7 @@ import Layout from "./pages/Layout";
 import Invoice from "./pages/Invoice/invoice";
 import CustomerLookup from "./pages/Customer Lookup/customerlookup";
 import IntakeForm from "./pages/IntakeForm/intakeform";
+import OpenTickets from "./pages/Open Tickets/opentickets";
 
 function App() {
   return (

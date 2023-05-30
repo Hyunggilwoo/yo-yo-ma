@@ -5,8 +5,6 @@
 /.pnp
 .pnp.js
 
-# authentication
-/src/server/db.js
 
 # testing
 /coverage
