@@ -1,8 +1,22 @@
+/* styles.css */
+
 .styledUL {
     background-color: #282c34;
-}
-
-.layouts {
-    display: block;
-    width: 60px; 
-}
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .layouts {
+    width: 200px;
+    font-size: small;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .layouts:last-child {
+    margin-bottom: 0;
+  }
+  
