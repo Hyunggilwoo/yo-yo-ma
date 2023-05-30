@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import logo from './PageComponents/logo.svg';
 import { Link } from "react-router-dom";
 
@@ -18,12 +17,8 @@ const HomePage = () => {
                 HomePage
                 </p>
                 <form>
-                    <button>
-                        Open Tickets
-                    </button>
-                    <button>
-                        Customer Lookup
-                    </button>
+                    <Link to ="/opentickets"><button>Open Tickets</button></Link>
+                    <Link to ="/customerlookup"><button>Customer Lookup</button></Link>
                     <Link to="/services"><button>Shop Controls</button></Link>
                 </form>
             </header>

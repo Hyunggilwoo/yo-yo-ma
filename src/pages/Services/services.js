@@ -34,13 +34,13 @@ const Services = () => {
                 </p>
                 <form>
                     <button onClick={handlePartsClick}>
-                        Add Parts
+                        Part Lookup
                     </button>
                     <button onClick={handleLaborClick}>
-                        Add Labor
+                        Labor Lookup
                     </button>
                     <button onClick={handleServiceClick}>
-                        Edit Services
+                        Add/Edit Inventory
                     </button>
 
                       

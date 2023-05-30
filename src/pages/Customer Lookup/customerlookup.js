@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import './styles.css'
+import { Link } from "react-router-dom";
+
 const CustomerLookup = () => {
     // handle button actions
     const [textBoxValue, setTextBoxValue] = useState();
@@ -35,9 +37,9 @@ const CustomerLookup = () => {
                 </form>
                 <button onClick={handleClick}>Search! </button>  
                 <div>
-                <button>
+                <Link to ="/IntakeForm"><button>
                     Add new Customer   
-                </button>
+                </button></Link>
                 </div>
             </header>
         </div>
