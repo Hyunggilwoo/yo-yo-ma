@@ -5,9 +5,9 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db');
 const app = express();
-const port = 3001; // Choose a suitable port number
-const customerLook = 'api/customerlookup';
-const invoices = '/api/invoices';
+const port = 3006; // Choose a suitable port number
+
+
 app.use(cors());
 app.use(express.json());
 
