@@ -31,6 +31,7 @@ const CustomerIntake = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <p>Customer Info</p>
       <div>
         <label htmlFor="firstName">First Name:</label>
         <input
@@ -42,6 +43,7 @@ const CustomerIntake = () => {
         />
       </div>
       <div>
+        
         <label htmlFor="lastName">Last Name:</label>
         <input
           type="text"

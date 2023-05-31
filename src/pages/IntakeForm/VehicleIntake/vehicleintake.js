@@ -29,6 +29,7 @@ const VehicleIntake = ({ handleSubmit }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
+        <p>Vehicle Info</p>
       <div>
         <label htmlFor="year">Year:</label>
         <input

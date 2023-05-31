@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomerLookup from '../../Customer Lookup/customerlookup';
 
 const BuildTicket = ({ onTicketSubmit }) => {
   const [ticketFormData, setTicketFormData] = useState({
@@ -42,30 +43,7 @@ const BuildTicket = ({ onTicketSubmit }) => {
     <div className="popup">
       <div className="popup-content">
         <h2>Build a Ticket</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={ticketFormData.firstName}
-              onChange={handleTicketInputChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={ticketFormData.lastName}
-              onChange={handleTicketInputChange}
-            />
-          </div>
-          {/* Add more form fields as needed */}
-          <button type="submit">Submit</button>
-        </form>
+        <CustomerLookup />
       </div>
     </div>
   );
