@@ -8,15 +8,9 @@
         font-size: calc(10px + 2vmin);
         color: white;
   }
-
   .ticket-box {
       border: 1px solid #ccc;
       padding: 20px;
       margin-top: 20px;
-    }
-    
-    .ticket-box p {
-      font-size: 18px;
-      text-align: center;
     }
     
