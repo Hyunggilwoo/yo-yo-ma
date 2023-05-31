@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import './styles.css';
+import CustomerIntake from './CustomerIntake/customerintake';
 
 const IntakeForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [customer, setCustomer] = useState('');
+  const [vehicle, setVehicle] = useState('');
 
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
+  const handleCustomerChange = (event) => {
+    setCustomer(event.target.value);
   };
 
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
+  const handleVehicleChange = (event) => {
+    setVehicle(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -24,14 +25,14 @@ const IntakeForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          firstName,
-          lastName,
+          customer,
+          vehicle,
         }),
       });
 
       // Clear the form
-      setFirstName('');
-      setLastName('');
+      setCustomer('');
+      setVehicle('');
 
       // Display a success message or perform any other actions
       console.log('Form submitted successfully');
@@ -45,27 +46,8 @@ const IntakeForm = () => {
     <div>
       <header className="styled">
         <p>Intake</p>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={handleFirstNameChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={handleLastNameChange}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+        <CustomerIntake/>
+        
       </header>
     </div>
   );
