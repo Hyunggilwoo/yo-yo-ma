@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './styles.css'
 import { Link } from "react-router-dom";
 
+const customerLook = 'api/customerlookup';
+
 const CustomerLookup = () => {
     // handle button actions
     const [textBoxValue, setTextBoxValue] = useState();
@@ -13,7 +15,18 @@ const CustomerLookup = () => {
     //put function to contact db here
     const handleClick = () => {
         //do something with textBoxValue
-    }
+        const url = customerLook + '?firstName=${textBoxValue}&lastName=${lastNameValue}';
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.error('Error fetching customer information:', error);
+            });
+    };
+
     const handleLastNameText = (event) => {
         setLastNameText(event.target.value);
     }
