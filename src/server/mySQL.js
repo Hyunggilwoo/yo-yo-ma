@@ -84,10 +84,10 @@ app.post('/api/customerintake', (req, res) => {
 
 // Define a route for adding vehicle information to MySQL
 app.post('/api/vehicleintake', async (req, res) => {
-  const { Year, Make, Model, VID, Class, Color } = req.body;
-
+  const { year, make, model, vid, vehicleClass, color } = req.body;
+  console.log(req.body);
   const query = 'INSERT INTO vehicleregistry (Year, Make, Model, VID, Class, Color) VALUES (?, ?, ?, ?, ?, ?)';
-  const values = [Year, Make, Model, VID, Class, Color];
+  const values = [year, make, model, vid, vehicleClass, color];
 
   db.query(query, values, (error, result) => {
     if (error) {
