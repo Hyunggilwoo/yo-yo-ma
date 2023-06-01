@@ -14,20 +14,34 @@ const CustomerIntake = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Send the form data to the backend
-    // You can use fetch, Axios, or any other library to make the API call
-
-    //console.log(formData); // Just for demonstration, you can remove this line
-
+  
+    // Send the form data to the backend API
+    fetch('/api/customerintake', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the backend
+        console.log(data); // For example, you can log the response or perform any other actions
+      })
+      .catch((error) => {
+        console.error('Error submitting customer form:', error);
+        // Handle the error, display an error message, etc.
+      });
+  
     // Reset the form after submission
     setFormData({
       firstName: '',
       lastName: '',
       email: '',
-      message: ''
+      message: '',
     });
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>

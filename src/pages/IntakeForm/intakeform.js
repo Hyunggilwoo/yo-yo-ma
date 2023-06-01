@@ -4,41 +4,53 @@ import CustomerIntake from './CustomerIntake/customerintake';
 import VehicleIntake from './VehicleIntake/vehicleintake';
 
 const IntakeForm = () => {
-
+  const [customer, setCustomer] = useState({});
+  const [vehicle, setVehicle] = useState({});
 
   const handleCustomerSubmit = async (customerData) => {
     // Send the customer data to the backend API
     try {
-      await fetch('/server/mySQL/customer', {
+      const response = await fetch('/api/customer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(customerData),
       });
-      // Clear the form or perform any other actions
-      console.log('Customer form submitted successfully');
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Customer form submitted successfully:', data);
+        setCustomer(data); // Update the customer state if needed
+      } else {
+        console.error('Error submitting customer form:', response.status);
+      }
     } catch (error) {
       console.error('Error submitting customer form:', error);
-      // Handle the error, display an error message, etc.
     }
   };
 
   const handleVehicleSubmit = async (vehicleData) => {
     // Send the vehicle data to the backend API
     try {
-      await fetch('/server/mySQL/vehicle', {
+      const response = await fetch('/api/vehicle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(vehicleData),
       });
-      // Clear the form or perform any other actions
-      console.log('Vehicle form submitted successfully');
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Vehicle form submitted successfully:', data);
+        setVehicle(data); // Update the vehicle state if needed
+      } else {
+        console.error('Error submitting vehicle form:', response.status);
+      }
     } catch (error) {
       console.error('Error submitting vehicle form:', error);
-      // Handle the error, display an error message, etc.
+      
     }
   };
 
