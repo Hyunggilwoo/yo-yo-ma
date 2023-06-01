@@ -102,19 +102,62 @@ app.post('/api/vehicleintake', async (req, res) => {
 
 // Define a route for fetching invoice details
 app.get('/api/invoices/:invoiceId', (req, res) => {
-  const invoiceId = req.params.invoiceId;
-  // Perform a query to fetch the specific invoice details based on invoiceId
-  // Replace the following line with your query to fetch invoice details from MySQL using invoiceId
-  const query = `SELECT * FROM invoicedetails WHERE invoiceId = ${invoiceId}`;
+  const invoiceId = req;
+  const query = `
+    SELECT
+      ir.\`Invoice#\`,
+      ir.total,
+      c.First_Name,
+      c.Last_Name,
+      v.\`Year\`,
+      v.Make,
+      v.Model,
+      b.\`Part#\`,
+      pr.Description,
+      pr.\`Cost ($)\`,
+      pr.\`Price ($)\`
+    FROM
+      \`invoiceregistry\` ir
+      INNER JOIN \`customerregistry\` c ON ir.CID = c.CID
+      INNER JOIN \`vehicleregistry\` v ON ir.VID = v.VID
+      INNER JOIN \`billing\` b ON ir.\`Invoice#\` = b.\`Invoice#\`
+      INNER JOIN \`partsregistry\` pr ON b.\`Part#\` = pr.\`Part#\`
+    WHERE
+      ir.\`Invoice#\` = ${invoiceId};
+  `;
+
   db.query(query, (error, results) => {
     if (error) {
       console.error('Error fetching invoice details from MySQL:', error);
       res.status(500).json({ error: 'Error fetching invoice details' });
     } else {
-      res.json(results);
+      const invoiceData = {
+        invoice: {
+          'Invoice#': results[0]['Invoice#'],
+          total: results[0].total,
+        },
+        customer: {
+          First_Name: results[0].First_Name,
+          Last_Name: results[0].Last_Name,
+        },
+        vehicle: {
+          'Year': results[0]['Year'],
+          Make: results[0].Make,
+          Model: results[0].Model,
+        },
+        billing: results.map((result) => ({
+          'Part#': result['Part#'],
+          Description: result.Description,
+          'Cost ($)': result['Cost ($)'],
+          'Price ($)': result['Price ($)'],
+        })),
+      };
+
+      res.json(invoiceData);
     }
   });
 });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -15,7 +15,13 @@ const Invoice = () => {
   }, []);
 
   const handleInvoiceClick = (invoice) => {
-    setSelectedInvoice(invoice);
+    fetch(`http://localhost:3001/api/invoicesID/${invoice['Invoice#']}`) // Replace with your backend API endpoint
+      .then((response) => response.json())
+      .then((data) => setSelectedInvoice(data))
+      .catch((error) => {
+        console.error('Error fetching invoice details:', error);
+        setSelectedInvoice(null);
+      });
   };
 
   const handleInvoiceClose = () => {
@@ -53,35 +59,35 @@ const Invoice = () => {
           </tbody>
         </table>
       </header>
-
       {selectedInvoice && (
         <div>
           <h1>Invoice Details</h1>
           <div>
             <h2>Customer Information</h2>
-            <p>Customer Name: {selectedInvoice.customerName}</p>
-            <p>Phone: {selectedInvoice.phone}</p>
-            <p>Email: {selectedInvoice.email}</p>
+            <p>
+              Customer Name: {selectedInvoice.customer.First_Name}{' '}
+              {selectedInvoice.customer.Last_Name}
+            </p>
             {/* Render other customer information fields */}
           </div>
           <div>
             <h2>Owned Vehicle Information</h2>
-            <p>Year: {selectedInvoice.vehicleYear}</p>
-            <p>Make: {selectedInvoice.vehicleMake}</p>
-            <p>Model: {selectedInvoice.vehicleModel}</p>
+            <p>Year: {selectedInvoice.vehicle.Year}</p>
             {/* Render other vehicle information fields */}
           </div>
           <div>
-            <h2>Job Details</h2>
-            {/* Render job information fields */}
-          </div>
-          <div>
-            <h2>Parts Details</h2>
-            {/* Render parts information fields */}
+            <h2>Billing Details</h2>
+            {selectedInvoice.billing.map((bill) => (
+              <div key={bill['Part#']}>
+                <p>Part#: {bill['Part#']}</p>
+                <p>Description: {bill.Description}</p>
+                {/* Render other billing information fields */}
+              </div>
+            ))}
           </div>
           <div>
             <h2>Total</h2>
-            <p>{selectedInvoice.total}</p>
+            <p>{selectedInvoice.invoice.total}</p>
           </div>
           <button onClick={handleInvoiceClose}>Close</button>
         </div>
