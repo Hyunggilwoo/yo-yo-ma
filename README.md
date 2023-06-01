@@ -15,7 +15,8 @@ node mySQL.js
 //please nore that you will need to configure db.js with your mysql login info.
 
 In the project directory, you can run:
-### 'npm install' to install necessary dependencies.
+### `npm install` 
+to install necessary dependencies.
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -29,7 +30,10 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-
+### Technology Stack
+Front-end: React.js 
+Back-end: Node.js
+Database: MySQL 
 
 ## Learn More
 
