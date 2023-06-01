@@ -1,7 +1,7 @@
 # Getting Started with Car Shop Database
 Car database is a shop management software, it contains records of service for all customers in a shop. It holds contact information, vehicle information, and keeps track of an invoice of each customer. Our current car database has a capacity to access the database with a specified authentication. As long as you have access to an internet, you and your employees can access the same car database store wherever they are. 
 
-![image](https://github.com/Hyunggilwoo/yo-yo-ma/assets/79225023/58a72f8f-0bf1-40ad-b032-e8d48605a11c)
+![image](https://github.com/Hyunggilwoo/yo-yo-ma/assets/79225023/3842a0d6-9e3f-4a57-90b8-828a5702f79d)
 
 This current project integrates to a local MySQL Server, although we have the script to connect to a database on Azure Cloud.
 
