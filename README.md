@@ -40,4 +40,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Review
 
-
+We currently have a mock page for the "shop services" page and "open page". We would like to integrate more queries to retrieve and put data into our database. 
+We would like to integrate Azure Cloud to the database, so that the store database can be accessed fully on the cloud.
