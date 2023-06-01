@@ -17,7 +17,7 @@ const HomePage = () => {
                 HomePage
                 </p>
                 <form>
-                    <Link to ="/opentickets"><button>Open Tickets</button></Link>
+                    <Link to ="/invoice"><button>Open Tickets</button></Link>
                     <Link to ="/customerlookup"><button>Customer Lookup</button></Link>
                     <Link to="/services"><button>Shop Controls</button></Link>
                 </form>
