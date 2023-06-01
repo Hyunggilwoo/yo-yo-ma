@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const InvoiceDetails = () => {
+  const { invoiceId } = useParams();
   const [invoice, setInvoice] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -8,7 +10,7 @@ const InvoiceDetails = () => {
     // Fetch the invoice data from the backend API
     const fetchInvoiceData = async () => {
       try {
-        const response = await fetch('/api/invoices/:invoiceId'); // Replace with the actual API endpoint for fetching a specific invoice
+        const response = await fetch(`/api/invoices/${invoiceId}`); // Replace with the actual API endpoint for fetching a specific invoice
         const data = await response.json();
         setInvoice(data);
         setLoading(false);
@@ -20,7 +22,7 @@ const InvoiceDetails = () => {
     };
 
     fetchInvoiceData();
-  }, []);
+  }, [invoiceId]);
 
   if (loading) {
     return <div>Loading...</div>;
