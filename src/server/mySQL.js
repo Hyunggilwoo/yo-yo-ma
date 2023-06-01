@@ -5,7 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db');
 const app = express();
-const port = 3006; // Choose a suitable port number
+const port = 3001; // Choose a suitable port number
 
 
 app.use(cors());
@@ -22,7 +22,7 @@ db.connect((error) => {
 });
 
 // Define a route for fetching info from MySQL
-app.get(invoices, (req, res) => {
+app.get('/api/invoices', (req, res) => {
   // put the SQL statement here.
   const query = 'SELECT * FROM invoiceregistry';
   db.query(query, (error, results) => {
@@ -35,22 +35,22 @@ app.get(invoices, (req, res) => {
   });
 });
 
-// Define a route for fetching invoices from MySQL
-app.get(invoices, (req, res) => {
-  // put the SQL statement here.
-  const query = 'SELECT * FROM invoiceregistry';
-  db.query(query, (error, results) => {
-    if (error) {
-      console.error('Error fetching invoices from MySQL:', error);
-      res.status(500).json({ error: 'Error fetching invoices' });
-    } else {
-      res.json(results);
-    }
-  });
-});
+// // Define a route for fetching invoices from MySQL
+// app.get('/api/invoices', (req, res) => {
+//   // put the SQL statement here.
+//   const query = 'SELECT * FROM invoiceregistry';
+//   db.query(query, (error, results) => {
+//     if (error) {
+//       console.error('Error fetching invoices from MySQL:', error);
+//       res.status(500).json({ error: 'Error fetching invoices' });
+//     } else {
+//       res.json(results);
+//     }
+//   });
+// });
 
 // Define a route for adding customer information on MySQL
-app.post(customerLook, (req, res) => {
+app.post('CustomerLookup', (req, res) => {
   const { firstName, lastName } = req.body;
 
   const query = 'INSERT INTO customerregistry (firstName, lastName) VALUES (?, ?)';
@@ -69,8 +69,8 @@ app.post(customerLook, (req, res) => {
 });
 
 // Define a route for retrieving customer information from MySQL
-app.get(customerLook), (req, res) => {
-  const {firstName, lastName } = req.body;
+app.get('/api/customerlookup', (req, res) => {
+  const {firstName, lastName } = req.query;
 
   const query = 'SELECT * FROM customerRegistry as c WHERE c.First_Name = ? AND c.Last_Name = ?';
   const values = [firstName, lastName];
@@ -84,7 +84,7 @@ app.get(customerLook), (req, res) => {
       res.json(results);
     }
   })
-}
+});
 
 // Start the server
 app.listen(port, () => {

@@ -12,6 +12,7 @@ const CustomerLookup = () => {
     const handleTextBoxChange = (event) => {
         setTextBoxValue(event.target.value);
     }
+    
     //put function to contact db here
     const handleClick = () => {
         //do something with textBoxValue
