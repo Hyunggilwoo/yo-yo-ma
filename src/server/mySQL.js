@@ -100,6 +100,21 @@ app.post('/api/vehicleintake', async (req, res) => {
 });
 });
 
+// Define a route for fetching invoice details
+app.get('/api/invoices/:invoiceId', (req, res) => {
+  const invoiceId = req.params.invoiceId;
+  // Perform a query to fetch the specific invoice details based on invoiceId
+  // Replace the following line with your query to fetch invoice details from MySQL using invoiceId
+  const query = `SELECT * FROM invoicedetails WHERE invoiceId = ${invoiceId}`;
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Error fetching invoice details from MySQL:', error);
+      res.status(500).json({ error: 'Error fetching invoice details' });
+    } else {
+      res.json(results);
+    }
+  });
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
