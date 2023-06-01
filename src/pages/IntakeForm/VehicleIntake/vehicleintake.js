@@ -25,7 +25,7 @@ const VehicleIntake = () => {
       .then((response) => {
         // Handle the response from the backend
         console.log(response.data); // For example, you can log the response or perform any other actions
-        console.log('hello vehicle entry not working.')  
+        // console.log('hello vehicle entry not working.')  
                 // Reset the form after successful submission
         setFormData({
           year: '',
