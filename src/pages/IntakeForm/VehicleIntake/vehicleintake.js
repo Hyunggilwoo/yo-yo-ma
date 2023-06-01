@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const VehicleIntake = ({ handleSubmit }) => {
+const VehicleIntake = () => {
   const [formData, setFormData] = useState({
     year: '',
     make: '',
@@ -16,20 +17,32 @@ const VehicleIntake = ({ handleSubmit }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    handleSubmit(formData); // Pass the form data to the parent component for submission
-    setFormData({
-      year: '',
-      make: '',
-      model: '',
-      vid: '',
-      vehicleClass: '',
-      color: '',
-    });
+
+    // Send the form data to the backend API
+    axios
+      .post('http://localhost:3001/api/vehicleintake', formData)
+      .then((response) => {
+        // Handle the response from the backend
+        console.log(response.data); // For example, you can log the response or perform any other actions
+        // Reset the form after successful submission
+        setFormData({
+          year: '',
+          make: '',
+          model: '',
+          vid: '',
+          vehicleClass: '',
+          color: '',
+        });
+      })
+      .catch((error) => {
+        console.error('Error submitting vehicle form:', error);
+        // Handle the error, display an error message, etc.
+      });
   };
 
   return (
     <form onSubmit={handleFormSubmit}>
-        <p>Vehicle Info</p>
+      <p>Vehicle Info</p>
       <div>
         <label htmlFor="year">Year:</label>
         <input

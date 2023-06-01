@@ -83,22 +83,20 @@ app.post('/api/customerintake', (req, res) => {
 
 
 // Define a route for adding vehicle information to MySQL
-app.post('/api/vehicle', (req, res) => {
+app.post('/api/vehicleintake', async (req, res) => {
   const { Year, Make, Model, VID, Class, Color } = req.body;
 
-  const query =
-    'INSERT INTO vehicleregistry (Year, Make, Model, VID, Class, Color) VALUES (?, ?, ?, ?, ?, ?)';
+  const query = 'INSERT INTO vehicleregistry (Year, Make, Model, VID, Class, Color) VALUES (?, ?, ?, ?, ?, ?)';
   const values = [Year, Make, Model, VID, Class, Color];
 
-  db.query(query, values, (error, result) => {
-    if (error) {
-      console.error('Error adding vehicle information to MySQL:', error);
-      res.status(500).json({ error: 'Error adding vehicle information' });
-    } else {
-      res.json({ message: 'Vehicle information added successfully' });
-      console.log('Vehicle added successfully');
-    }
-  });
+  try {
+    await db.query(query, values);
+    res.json({ message: 'Vehicle information added successfully' });
+    console.log('Vehicle added successfully');
+  } catch (error) {
+    console.error('Error adding vehicle information to MySQL:', error);
+    res.status(500).json({ error: 'Error adding vehicle information' });
+  }
 });
 
 // Start the server
