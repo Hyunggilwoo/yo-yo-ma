@@ -17,19 +17,16 @@ const VehicleIntake = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
+    
+    console.log('Submitting form data:', formData);
     // Send the form data to the backend API
     axios
       .post('http://localhost:3001/api/vehicleintake', formData)
       .then((response) => {
         // Handle the response from the backend
         console.log(response.data); // For example, you can log the response or perform any other actions
-        }) 
-        .catch((error) => {
-        console.error('Error submitting vehicle form:', error);
-        // Handle the error, display an error message, etc.
-        });
-        // Reset the form after successful submission
+        // console.log('hello vehicle entry not working.')  
+                // Reset the form after successful submission
         setFormData({
           year: '',
           make: '',
@@ -38,6 +35,12 @@ const VehicleIntake = () => {
           vehicleClass: '',
           color: '',
         });  
+      }) 
+        .catch((error) => {
+        console.error('Error submitting vehicle form:', error);
+        // Handle the error, display an error message, etc.
+        });
+
   };
 
   return (
