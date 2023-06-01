@@ -3,7 +3,7 @@ import "./styles.css";
 
 const Layout = () => {
   return (
-    <form className="styled">
+    <div className="container">
       <nav>
         <ul className="styledUL">
           <li className="layouts">
@@ -27,8 +27,10 @@ const Layout = () => {
         </ul>
       </nav>
 
-      <Outlet />
-    </form>
+      <div className="page-container">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 

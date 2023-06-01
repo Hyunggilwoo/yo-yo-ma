@@ -7,7 +7,7 @@ const Tickets = ({ tickets, onBuildTicket }) => {
   };
 
   return (
-    <div>
+    <div className="page-container">
       {tickets.length > 0 ? (
         <div>
           <h2>Submitted Forms:</h2>

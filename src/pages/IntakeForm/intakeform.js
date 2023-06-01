@@ -1,43 +1,43 @@
 import React, { useState } from 'react';
 import './styles.css';
 import CustomerIntake from './CustomerIntake/customerintake';
+import VehicleIntake from './VehicleIntake/vehicleintake';
 
 const IntakeForm = () => {
-  const [customer, setCustomer] = useState('');
-  const [vehicle, setVehicle] = useState('');
 
-  const handleCustomerChange = (event) => {
-    setCustomer(event.target.value);
-  };
 
-  const handleVehicleChange = (event) => {
-    setVehicle(event.target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleCustomerSubmit = async (customerData) => {
+    // Send the customer data to the backend API
     try {
-      // Send the form data to the backend API
-      await fetch('/server/mySQL', {
+      await fetch('/server/mySQL/customer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          customer,
-          vehicle,
-        }),
+        body: JSON.stringify(customerData),
       });
-
-      // Clear the form
-      setCustomer('');
-      setVehicle('');
-
-      // Display a success message or perform any other actions
-      console.log('Form submitted successfully');
+      // Clear the form or perform any other actions
+      console.log('Customer form submitted successfully');
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting customer form:', error);
+      // Handle the error, display an error message, etc.
+    }
+  };
+
+  const handleVehicleSubmit = async (vehicleData) => {
+    // Send the vehicle data to the backend API
+    try {
+      await fetch('/server/mySQL/vehicle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(vehicleData),
+      });
+      // Clear the form or perform any other actions
+      console.log('Vehicle form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting vehicle form:', error);
       // Handle the error, display an error message, etc.
     }
   };
@@ -46,8 +46,8 @@ const IntakeForm = () => {
     <div>
       <header className="styled">
         <p>Intake</p>
-        <CustomerIntake/>
-        
+        <CustomerIntake handleSubmit={handleCustomerSubmit} />
+        <VehicleIntake handleSubmit={handleVehicleSubmit} />
       </header>
     </div>
   );

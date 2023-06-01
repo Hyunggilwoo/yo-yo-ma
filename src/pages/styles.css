@@ -1,22 +1,33 @@
 /* styles.css */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+}
+
 .styledUL {
-    background-color: #282c34;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .layouts {
-    width: 200px;
-    font-size: small;
-    margin-bottom: 10px;
-    color: white;
-  }
-  
-  .layouts:last-child {
-    margin-bottom: 0;
-  }
-  
+  background-color: #282c34;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layouts {
+  width: 200px;
+  font-size: small;
+  margin-bottom: 1px;
+  color: white;
+}
+
+.layouts:last-child {
+  margin-bottom: 1;
+}
+
+.page-container {
+  flex: 0;
+  display: fill;
+  align-items: stretch;
+}
