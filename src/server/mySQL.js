@@ -89,14 +89,15 @@ app.post('/api/vehicleintake', async (req, res) => {
   const query = 'INSERT INTO vehicleregistry (Year, Make, Model, VID, Class, Color) VALUES (?, ?, ?, ?, ?, ?)';
   const values = [Year, Make, Model, VID, Class, Color];
 
-  try {
-    await db.query(query, values);
-    res.json({ message: 'Vehicle information added successfully' });
-    console.log('Vehicle added successfully');
-  } catch (error) {
-    console.error('Error adding vehicle information to MySQL:', error);
-    res.status(500).json({ error: 'Error adding vehicle information' });
+  db.query(query, values, (error, result) => {
+    if (error) {
+      console.error('Error adding vehicle information to MySQL:', error);
+      res.status(500).json({ error: 'Error adding vehicle information' }); 
+    } else {
+      res.json({ message: 'Vehicle information added successfully' });
+      console.log('Vehicle added successfully');
   }
+});
 });
 
 // Start the server

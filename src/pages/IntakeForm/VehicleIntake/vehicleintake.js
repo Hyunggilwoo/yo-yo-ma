@@ -24,6 +24,11 @@ const VehicleIntake = () => {
       .then((response) => {
         // Handle the response from the backend
         console.log(response.data); // For example, you can log the response or perform any other actions
+        }) 
+        .catch((error) => {
+        console.error('Error submitting vehicle form:', error);
+        // Handle the error, display an error message, etc.
+        });
         // Reset the form after successful submission
         setFormData({
           year: '',
@@ -32,12 +37,7 @@ const VehicleIntake = () => {
           vid: '',
           vehicleClass: '',
           color: '',
-        });
-      })
-      .catch((error) => {
-        console.error('Error submitting vehicle form:', error);
-        // Handle the error, display an error message, etc.
-      });
+        });  
   };
 
   return (
