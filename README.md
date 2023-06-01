@@ -28,9 +28,9 @@ Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ## Usage
-* 1. Click "Intake Form" to fill out a customer form and a new vehicle form.
-* 2. Click "Invoices" or "Home" to look at the current invoices.
-* 3. Click "Customer Lookup" to find all of the customers registered in the shop.
+1. Click "Intake Form" to fill out a customer form and a new vehicle form.
+2. Click "Invoices" or "Home" to look at the current invoices.
+3. Click "Customer Lookup" to find all of the customers registered in the shop.
 
 
 ### Technology Stack
