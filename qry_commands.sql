@@ -14,12 +14,22 @@ CREATE TABLE Store (
 );
 
 -- Customer registry retrieves information to the store.
-CREATE TABLE Customer_Registry (
-    CID INT PRIMARY KEY, -- Created primary key
+CREATE TABLE Customers (
+    id INT PRIMARY KEY, -- Created primary key
     Name VARCHAR(100),
     Phone_Num INT,
     Email VARCHAR(100), -- TODO: In application, don't forget to include character restriction or it cannot be null
     History VARCHAR(100), -- TODO: Need to figure out how to query specific invoice number into history.
 );
+
+
+-- How can we adapt the following tables and queries to be used in our car database?
+CREATE TABLE Cars (id int PRIMARY KEY, pnum VARCHAR(10), year int, Make VARCHAR(20), Model VARCHAR(20),
+                    color VARCHAR(20), submodel VARCHAR(20));
+
+-- We use the Customers, Cars, and OwnedVehicle tables to retrieve the information in relation to customers and cars.
+CREATE TABLE OwnedVehicle (vin int REFERENCES Cars(id),
+                            cid int REFERENCES Customers(id));
+
 
 ------------------------------------------------------------------------------------------------------
