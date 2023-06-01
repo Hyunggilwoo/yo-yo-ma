@@ -43,7 +43,7 @@ const BuildTicket = ({ onTicketSubmit }) => {
     <div className="popup">
       <div className="popup-content">
         <h2>Build a Ticket</h2>
-        <CustomerLookup />
+        
       </div>
     </div>
   );

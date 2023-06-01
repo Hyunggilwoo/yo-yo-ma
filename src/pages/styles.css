@@ -27,7 +27,7 @@
 }
 
 .page-container {
-  flex: 1;
-  display: flex;
+  flex: 0;
+  display: fill;
   align-items: stretch;
 }

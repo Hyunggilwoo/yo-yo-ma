@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 const Invoice = () => {
   const [invoices, setInvoices] = useState([]);
@@ -24,6 +24,7 @@ const Invoice = () => {
               <th>VID</th>
               <th>CID</th>
               <th>Total</th>
+              <th>Actions</th> {/* Add a new column for actions */}
             </tr>
           </thead>
           <tbody>
@@ -33,6 +34,11 @@ const Invoice = () => {
                 <td>{invoice['VID']}</td>
                 <td>{invoice['CID']}</td>
                 <td>{invoice['total']}</td>
+                <td>
+                  <Link to={`/invoices/${invoice['Invoice#']}`}>
+                    View Details
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
