@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'; 
 import './styles.css';
 import CustomerIntake from './CustomerIntake/customerintake';
 import VehicleIntake from './VehicleIntake/vehicleintake';
@@ -8,20 +9,32 @@ const IntakeForm = () => {
 
   const handleCustomerSubmit = async (customerData) => {
     // Send the customer data to the backend API
-    try {
-      await fetch('/server/mySQL/customer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(customerData),
-      });
-      // Clear the form or perform any other actions
-      console.log('Customer form submitted successfully');
-    } catch (error) {
-      console.error('Error submitting customer form:', error);
-      // Handle the error, display an error message, etc.
-    }
+    axios.post('http://localhost:3000/api/customerlookup', {
+      firstName: customerData.firstName,
+      lastName: customerData.lastName,
+      email: customerData.email,
+      message: customerData.message
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    // try {
+    //   await fetch('/server/mySQL/customer', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(customerData),
+    //   });
+    //   // Clear the form or perform any other actions
+    //   console.log('Customer form submitted successfully');
+    // } catch (error) {
+    //   console.error('Error submitting customer form:', error);
+    //   // Handle the error, display an error message, etc.
+    // }
   };
 
   const handleVehicleSubmit = async (vehicleData) => {

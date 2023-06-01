@@ -5,8 +5,9 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db');
 const app = express();
-const port = 3001; // Choose a suitable port number
-
+const port = 3000; // Choose a suitable port number
+const invoice = '/api/invoices';
+const customerlook = '/api/customerlookup';
 
 app.use(cors());
 app.use(express.json());
@@ -50,7 +51,7 @@ app.get('/api/invoices', (req, res) => {
 // });
 
 // Define a route for adding customer information on MySQL
-app.post('CustomerLookup', (req, res) => {
+app.post('/api/customerlookup', (req, res) => {
   const { firstName, lastName } = req.body;
 
   const query = 'INSERT INTO customerregistry (firstName, lastName) VALUES (?, ?)';

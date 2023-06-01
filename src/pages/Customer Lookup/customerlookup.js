@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import './styles.css'
 import { Link } from "react-router-dom";
 
-const customerLook = 'api/customerlookup';
+const local = 'http://localhost:3000'
+const customerLook = '/api/customerlookup';
 
 const CustomerLookup = () => {
     // handle button actions
@@ -12,26 +14,37 @@ const CustomerLookup = () => {
     const handleTextBoxChange = (event) => {
         setTextBoxValue(event.target.value);
     }
-    
-    //put function to contact db here
-    const handleClick = () => {
-        //do something with textBoxValue
-        const url = customerLook + '?firstName=${textBoxValue}&lastName=${lastNameValue}';
-
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-            })
-            .catch((error) => {
-                console.error('Error fetching customer information:', error);
-            });
-    };
 
     const handleLastNameText = (event) => {
         setLastNameText(event.target.value);
     }
 
+    //put function to contact db here
+    const handleClick = () => {
+        //do something with textBoxValue
+        const url = local + customerLook + '?firstName=${textBoxValue}&lastName=${lastNameValue}';
+        axios.get('http://localhost:3000/api/customerlookup', {
+            params: {
+              firstName: textBoxValue,
+              lastName: lastNameValue
+            }
+          })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+    //     fetch(url)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching customer information:', error);
+    //         });
+    // };
 
     
     return (
