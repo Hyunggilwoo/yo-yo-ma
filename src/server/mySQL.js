@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./db');
+const axios = require('axios'); // Import axios
 const app = express();
 
 const port = 3001; // Choose a suitable port number
@@ -48,22 +49,38 @@ app.get(customerLook, (req, res) => {
 });
 
 // Define a route for adding customer information to MySQL
-app.post('/api/customerIntake', (req, res) => {
-  const { firstName, lastName } = req.body;
+app.post('/api/customerintake', (req, res) => {
+  const { firstName, lastName, phone, email } = req.body;
 
-  const query = 'INSERT INTO customerregistry (First_Name, Last_Name) VALUES (?, ?)';
-  const values = [firstName, lastName];
-
-  db.query(query, values, (error, result) => {
+  // Retrieve the last CID from the database
+  const getLastCIDQuery = 'SELECT MAX(CID) AS lastCID FROM customerregistry';
+  db.query(getLastCIDQuery, (error, results) => {
     if (error) {
-      console.error('Error adding customer information to MySQL:', error);
+      console.error('Error retrieving last CID from MySQL:', error);
       res.status(500).json({ error: 'Error adding customer information' });
     } else {
-      res.json({ message: 'Customer information added successfully' });
-      console.log('Customer added successfully');
+      // Calculate the next CID as lastCID + 1
+      const lastCID = results[0].lastCID;
+      const nextCID = lastCID ? lastCID + 1 : 1;
+
+      // Insert the new customer information with the nextCID
+      const insertQuery = 'INSERT INTO customerregistry (CID, First_Name, Last_Name, Phone, Email) VALUES (?, ?, ?, ?, ?)';
+      const insertValues = [nextCID, firstName, lastName, phone, email];
+
+      db.query(insertQuery, insertValues, (error, result) => {
+        if (error) {
+          console.error('Error adding customer information to MySQL:', error);
+          res.status(500).json({ error: 'Error adding customer information' });
+        } else {
+          res.json({ message: 'Customer information added successfully' });
+          console.log('Customer added successfully');
+        }
+      });
     }
   });
 });
+
+
 
 // Define a route for adding vehicle information to MySQL
 app.post('/api/vehicle', (req, res) => {
