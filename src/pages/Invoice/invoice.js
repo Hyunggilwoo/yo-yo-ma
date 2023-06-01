@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Invoice = () => {
   const [invoices, setInvoices] = useState([]);
@@ -15,7 +15,7 @@ const Invoice = () => {
   }, []);
 
   const handleInvoiceClick = (invoice) => {
-    fetch(`http://localhost:3001/api/invoicesID/${invoice['Invoice#']}`) // Replace with your backend API endpoint
+    fetch(`http://localhost:3001/api/invoices/${invoice['Invoice#']}`) // Replace with your backend API endpoint
       .then((response) => response.json())
       .then((data) => setSelectedInvoice(data))
       .catch((error) => {
@@ -23,6 +23,7 @@ const Invoice = () => {
         setSelectedInvoice(null);
       });
   };
+  
 
   const handleInvoiceClose = () => {
     setSelectedInvoice(null);

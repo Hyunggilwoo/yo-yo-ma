@@ -102,7 +102,7 @@ app.post('/api/vehicleintake', async (req, res) => {
 
 // Define a route for fetching invoice details
 app.get('/api/invoices/:invoiceId', (req, res) => {
-  const invoiceId = req;
+  const invoiceId = req.params.invoiceId;
   const query = `
     SELECT
       ir.\`Invoice#\`,
@@ -157,6 +157,7 @@ app.get('/api/invoices/:invoiceId', (req, res) => {
     }
   });
 });
+
 
 // Start the server
 app.listen(port, () => {
