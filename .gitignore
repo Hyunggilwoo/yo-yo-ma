@@ -27,3 +27,4 @@ yarn-error.log*
 .idea/reactappmoda.iml
 .gitignore
 .idea/vcs.xml
+src/server/db.js
